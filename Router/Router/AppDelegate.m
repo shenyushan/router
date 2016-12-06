@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "RRouter.h"
+#import "RRouterViewController.h"
 
 @interface AppDelegate ()
 
@@ -23,6 +25,13 @@
     [self.window makeKeyAndVisible];
     
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[ViewController alloc] init]] ;
+    
+    
+    // step1   use  RRouterManagerCenter  registe url
+    RRouterManagerCenter *center = [RRouterManagerCenter sharedCenter];
+    [center registerAppInfoSchemes];
+    [center registerRouterUrl:@"router://router.test.com/test" viewControllerClass:[RRouterViewController class]];
+
     return YES;
 }
 

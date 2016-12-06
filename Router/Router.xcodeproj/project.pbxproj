@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D014B6231DF65B3600B7BD73 /* RRouterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D014B6221DF65B3600B7BD73 /* RRouterViewController.m */; };
 		D019C1501DF1163000788803 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D019C14F1DF1163000788803 /* main.m */; };
 		D019C1531DF1163000788803 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D019C1521DF1163000788803 /* AppDelegate.m */; };
 		D019C1561DF1163000788803 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D019C1551DF1163000788803 /* ViewController.m */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D014B6211DF65B3600B7BD73 /* RRouterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRouterViewController.h; sourceTree = "<group>"; };
+		D014B6221DF65B3600B7BD73 /* RRouterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRouterViewController.m; sourceTree = "<group>"; };
 		D019C14B1DF1163000788803 /* Router.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Router.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D019C14F1DF1163000788803 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D019C1511DF1163000788803 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -80,6 +83,8 @@
 				D019C1521DF1163000788803 /* AppDelegate.m */,
 				D019C1541DF1163000788803 /* ViewController.h */,
 				D019C1551DF1163000788803 /* ViewController.m */,
+				D014B6211DF65B3600B7BD73 /* RRouterViewController.h */,
+				D014B6221DF65B3600B7BD73 /* RRouterViewController.m */,
 				D019C1571DF1163000788803 /* Main.storyboard */,
 				D019C15A1DF1163000788803 /* Assets.xcassets */,
 				D019C15C1DF1163000788803 /* LaunchScreen.storyboard */,
@@ -191,6 +196,7 @@
 				D019C1561DF1163000788803 /* ViewController.m in Sources */,
 				D019C1721DF124D100788803 /* NSString+UrlComponent.m in Sources */,
 				D019C1681DF116AE00788803 /* RRouterManager.m in Sources */,
+				D014B6231DF65B3600B7BD73 /* RRouterViewController.m in Sources */,
 				D019C1531DF1163000788803 /* AppDelegate.m in Sources */,
 				D019C16E1DF1171B00788803 /* UIViewController+Router.m in Sources */,
 				D019C1501DF1163000788803 /* main.m in Sources */,

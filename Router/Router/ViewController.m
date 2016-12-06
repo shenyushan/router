@@ -9,8 +9,8 @@
 #import "ViewController.h"
 #import "RRouter.h"
 @interface ViewController ()<RRouterManagerDelegate>
-@property(strong, nonatomic) UILabel *label;
-@property(copy, nonatomic) NSString *text;
+
+
 @end
 
 @implementation ViewController
@@ -18,38 +18,39 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.label = [[UILabel alloc] initWithFrame:self.view.bounds];
-    self.label.text = self.text;
-    self.label.numberOfLines = 0;
-    [self.view addSubview:self.label];
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(50, 150, 100, 30);
+    [btn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
+    [btn setTitle:@"跳转" forState:UIControlStateNormal];
+    btn.backgroundColor = [UIColor redColor];
+    [self.view addSubview:btn];
 }
 
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
- 
-    RRouterManagerCenter *center = [RRouterManagerCenter sharedCenter];
-    [center registerAppInfoSchemes];
-    [center registerRouterUrl:@"http://www.baidu.com" viewControllerClass:[ViewController class]];
+- (void)btnClick{
+    //step2 use RRouterManager display viewcontroller
+    /*
+    manager 在打开一个页面之前会首先询问delegate是否需要打开,当delegate允许之后，会询问url对应的VC是否可以打开
+    VC可以使用manager.parametersInUr获取必要参数来决定是否打开
+     
+     */
     RRouterManager *manager = [[RRouterManager alloc] init];
     manager.delegate  = self;
-    [manager routerPushWithURL:@"router://WWw.abaidu.com?aaa=a&bbb=b&ccc=c" fromVC:self routerCenter:center];
+    [manager routerPushWithURL:@"router://router.test.com/test?title=RRouterViewController" fromVC:self routerCenter:[RRouterManagerCenter sharedCenter]];
 
 }
+
+
 -(void)router:(RRouterManager *)manager willDisplayViewControllerWithUrl:(NSString *)url handler:(void (^)(RRouterManagerProcessType))handler{
-    handler(RRouterManagerProcessTypeContinue);
+    NSLog(@"即将跳转到 %@",url);
     
+    //can handler to continue or interrupt display
+    handler(RRouterManagerProcessTypeContinue);
 }
 
 -(void)router:(RRouterManager *)router didFailedDisplayViewControllerWithUrl:(NSString *)url error:(RRouterError *)error{
-    
     NSLog(@"%@",error.message);
 }
 
-- (void)willDisplayByRouter:(RRouterManager *)router handler:(void(^)(RRouterDisplayViewControllerType result, RRouterError *erro))handler{
-    
-    self.text = [router.parametersInUrl description];
-    RRouterError *error = [[RRouterError alloc] initWithType:RRouterErrorTypeUrlUnAvailable message:@"参数不合法"];
-    handler(RRouterDisplayViewControllerTypeAvaliable,error);
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
